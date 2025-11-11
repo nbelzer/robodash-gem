@@ -13,5 +13,7 @@ Robodash.ping("Some bg job")
 
 # Counting things
 Robodash.count("Something to track", 10)
-```
 
+# Tracking measurements
+Robodash.measure("Puma Backlog", Puma.stats_hash[:backlog])
+```
