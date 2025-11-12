@@ -46,8 +46,10 @@ module Robodash
       fire_and_forget("count", {name: name, count: count.to_i})
     end
 
-    def measure(name, value, unit = nil)
-      fire_and_forget("measurements", { name:, value:, unit: }.compact)
+    # Track values for a specific measurement over time
+    # Includes a client-side timestamp by default.
+    def measure(name, value, unit = nil, timestamp = Time.current)
+      fire_and_forget("measurements", { name:, value:, unit:, timestamp: }.compact)
     end
 
     def finish_up!
