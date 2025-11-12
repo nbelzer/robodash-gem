@@ -48,7 +48,7 @@ module Robodash
 
     # Track values for a specific measurement over time
     # Includes a client-side timestamp by default.
-    def measure(name, value, unit = nil, timestamp = Time.current)
+    def measure(name, value, unit = nil, timestamp = Time.now.utc)
       fire_and_forget("measurements", { name:, value:, unit:, timestamp: }.compact)
     end
 
