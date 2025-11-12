@@ -14,6 +14,10 @@ Puma::Plugin.create do
         sleep 1
       end
     end
+
+    launcher.events.on_stopped do
+      Process.kill(:INT, $$)
+    end
   end
 
   def collect_and_report_metrics
