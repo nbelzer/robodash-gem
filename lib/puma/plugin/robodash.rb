@@ -4,6 +4,8 @@ require "robodash"
 
 Puma::Plugin.create do
   def start(launcher)
+    return unless Robodash.api_token
+
     in_background do
       loop do
         sleep 1 # second
