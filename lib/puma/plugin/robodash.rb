@@ -6,12 +6,10 @@ Puma::Plugin.create do
   def start(launcher)
     in_background do
       loop do
-        begin
-          collect_and_report_metrics
-        rescue => e
-          Puma::LogWriter.stdio.log "Metrics collection error: #{e.message}"
-        end
-        sleep 1
+        sleep 1 # second
+        collect_and_report_metrics
+      rescue => e
+        Puma::LogWriter.stdio.log "Metrics collection error: #{e.message}"
       end
     end
   end
