@@ -8,7 +8,7 @@ Puma::Plugin.create do
 
     in_background do
       loop do
-        sleep 1 # second
+        sleep 5 # seconds
         collect_and_report_metrics
       rescue => e
         Puma::LogWriter.stdio.log "Metrics collection error: #{e.message}"
